@@ -9,13 +9,17 @@
       </form>
       <ul class="nav nav-pills nav-stacked" style="margin-top: 20px">
         <li ng-repeat="todo in todos | filter:filterTodos() | orderBy:'title' | orderBy:'completed'" ng-class="{active: todo.completed}">
-        <a href="#" ng-click="mark(todo)">{{todo.title}}</a>
+          <a href="#" ng-click="mark(todo)">{{todo.title}}</a>
         </li>
       </ul>
-      <div class="btn-group" style="margin-top: 20px">
-        <label class="btn btn-default" ng-model="mode" btn-radio="'All'" uncheckable> All</label>
-        <label class="btn btn-default" ng-model="mode" btn-radio="'Active'" uncheckable> Active</label>
-        <label class="btn btn-default" ng-model="mode" btn-radio="'Completed'" uncheckable> Completed</label>
+      <div id="controls" style="margin-top: 20px">
+        <div class="btn-group">
+          <label class="btn btn-default" ng-model="mode" btn-radio="'All'" uncheckable>All</label>
+          <label class="btn btn-default" ng-model="mode" btn-radio="'Active'" uncheckable>Active</label>
+          <label class="btn btn-default" ng-model="mode" btn-radio="'Completed'" uncheckable>Completed</label>
+        </div>
+        <button class="btn btn-primary" ng-click="clearCompletedTodos()" style="float: right">Clear Completed Todos</button>
+      </div>
     </div>
   </div>
 </div>

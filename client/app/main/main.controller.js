@@ -66,7 +66,7 @@ angular.module('todoRestifierApp')
         return val.completed;
       });
       var promises = completedTodos.map(function(todo) {
-        return todo.remove();
+        return todo.one(todo._id).remove();
       });
       $q.all(promises).then(function() {
         return $scope.todos.getList();
