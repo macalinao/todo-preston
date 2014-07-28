@@ -58,6 +58,12 @@ angular.module('todoRestifierApp')
       });
     };
 
+    $scope.mark = function(todo) {
+      var todoHandle = todo.one(todo._id);
+      todoHandle.completed = todo.completed = !todo.completed;
+      todoHandle.put();
+    };
+
     $scope.markAll = function(completed) {
       $scope.todos.map(function(todo) {
         todo.completed = !completed;
