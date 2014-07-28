@@ -6,7 +6,7 @@
 
 // Set default node environment to development
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-process.env.MONGOHQ_URL = process.env.MONGOHQ_URL || 'mongodb://localhost/test';
+process.env.MONGOHQ_URL = process.env.MONGOHQ_URL || 'mongodb://localhost:27017/test';
 
 var express = require('express');
 var mongoose = require('mongoose');
@@ -14,7 +14,7 @@ var restifier = require('restifier');
 var config = require('./config/environment');
 
 // Connect to db
-mongoose.connect(process.env.MONGOGQ_URL);
+mongoose.connect(process.env.MONGOHQ_URL);
 
 var Todo = mongoose.model('Todo', new mongoose.Schema({
   title: String,
