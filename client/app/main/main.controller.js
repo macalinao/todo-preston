@@ -7,9 +7,13 @@ angular.module('todoRestifierApp')
       $scope.todos = todos;
     });
 
-    $scope.newTodo = {
-      title: ''
-    };
+    function resetTodo() {
+      $scope.newTodo = {
+        title: '',
+        completed: false
+      };
+    }
+    resetTodo();
 
     $scope.filterTodos = function() {
       switch ($scope.mode) {
@@ -38,9 +42,7 @@ angular.module('todoRestifierApp')
       Todo.post($scope.newTodo).then(function(todo) {
         $scope.todos.push(todo);
       });
-      $scope.newTodo = {
-        title: ''
-      };
+      resetTodo();
     };
 
     $scope.doneEditing = function(todo, $index) {
