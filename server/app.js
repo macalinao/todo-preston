@@ -25,11 +25,12 @@ var Todo = mongoose.model('Todo', new mongoose.Schema({
 var app = express();
 var server = require('http').createServer(app);
 require('./config/express')(app);
-require('./routes')(app);
 
 // Restifier stuff
 app.use('/api', restifier());
 app.use('/api', restifier(Todo).middleware());
+
+require('./routes')(app);
 
 // Start server
 server.listen(config.port, config.ip, function () {
