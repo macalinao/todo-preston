@@ -2,5 +2,5 @@
 
 angular.module('todoRestifierApp')
   .factory('Todo', function(Restangular) {
-    return Restangular.service('todos');
+    return Restangular.service('api/todos');
   });

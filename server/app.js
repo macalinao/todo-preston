@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGOHQ_URL);
 
 var Todo = mongoose.model('Todo', new mongoose.Schema({
   title: String,
-  status: Boolean
+  completed: Boolean
 }));
 
 // Setup server
