@@ -3,12 +3,14 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header">Todo:</h1>
+      <h1 class="page-header">Todo <small>{{remainingCount}} items left</small></h1>
       <form ng-submit="addTodo()">
         <input type="text" placeholder="What needs to be done?" ng-model="newTodo.title" class="form-control" autofocus />
       </form>
-      <ul ng-repeat="todo in todos">
-        <li>{{todo.title}}</li>
+      <ul class="nav nav-pills nav-stacked">
+        <li ng-repeat="todo in todos">
+          <a href="#">{{todo.title}}</a>
+        </li>
       </ul>
     </div>
   </div>

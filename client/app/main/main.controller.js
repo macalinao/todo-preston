@@ -12,8 +12,8 @@ angular.module('todoRestifierApp')
     };
 
     $scope.$watch('todos', function() {
-      $scope.remainingCount = $filter('filter')($scope.todos, {
-        completed: false
+      $scope.remainingCount = $scope.todos.filter(function(todo) {
+        return !todo.completed;
       }).length;
       $scope.completedCount = $scope.todos.length - $scope.remainingCount;
       $scope.allChecked = !$scope.remainingCount;
