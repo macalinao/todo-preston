@@ -10,6 +10,7 @@ process.env.MONGOHQ_URL = process.env.MONGOHQ_URL || 'mongodb://localhost/test';
 
 var express = require('express');
 var mongoose = require('mongoose');
+var restifier = require('restifier');
 var config = require('./config/environment');
 
 // Connect to db
