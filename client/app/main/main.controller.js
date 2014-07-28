@@ -11,6 +11,21 @@ angular.module('todoRestifierApp')
       title: ''
     };
 
+    $scope.filterTodos = function() {
+      switch ($scope.mode) {
+        case 'All':
+          return {};
+        case 'Active':
+          return {
+            completed: false
+          };
+        case 'Completed':
+          return {
+            completed: true
+          };
+      }
+    };
+
     $scope.$watch('todos', function() {
       $scope.remainingCount = $scope.todos.filter(function(todo) {
         return !todo.completed;

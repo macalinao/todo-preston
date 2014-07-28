@@ -8,10 +8,14 @@
         <input type="text" placeholder="What needs to be done?" ng-model="newTodo.title" class="form-control" autofocus />
       </form>
       <ul class="nav nav-pills nav-stacked">
-        <li ng-repeat="todo in todos | orderBy:'title' | orderBy:'completed'" ng-class="{active: todo.completed}">
+        <li ng-repeat="todo in todos | filter:filterTodos() | orderBy:'title' | orderBy:'completed'" ng-class="{active: todo.completed}">
         <a href="#" ng-click="mark(todo)">{{todo.title}}</a>
         </li>
       </ul>
+      <div class="btn-group" style="margin-top: 20px">
+        <label class="btn btn-default" ng-model="mode" btn-radio="'All'" uncheckable> All</label>
+        <label class="btn btn-default" ng-model="mode" btn-radio="'Active'" uncheckable> Active</label>
+        <label class="btn btn-default" ng-model="mode" btn-radio="'Completed'" uncheckable> Completed</label>
     </div>
   </div>
 </div>
