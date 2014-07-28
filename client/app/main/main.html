@@ -7,7 +7,7 @@
       <form ng-submit="addTodo()">
         <input type="text" placeholder="What needs to be done?" ng-model="newTodo.title" class="form-control" autofocus />
       </form>
-      <ul class="nav nav-pills nav-stacked">
+      <ul class="nav nav-pills nav-stacked" style="margin-top: 20px">
         <li ng-repeat="todo in todos | filter:filterTodos() | orderBy:'title' | orderBy:'completed'" ng-class="{active: todo.completed}">
         <a href="#" ng-click="mark(todo)">{{todo.title}}</a>
         </li>
