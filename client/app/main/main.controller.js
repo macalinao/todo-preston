@@ -69,7 +69,7 @@ angular.module('todoRestifierApp')
         return;
       }
       var promises = completedTodos.map(function(todo) {
-        return todo.one(todo._id).remove();
+        return todo.remove();
       });
       $q.all(promises).then(function() {
         return $scope.todos.getList();
@@ -79,9 +79,8 @@ angular.module('todoRestifierApp')
     };
 
     $scope.mark = function(todo) {
-      var todoHandle = todo.one(todo._id);
-      todoHandle.completed = todo.completed = !todo.completed;
-      todoHandle.put();
+      todo.completed = !todo.completed;
+      todo.put();
     };
 
     $scope.markAll = function(completed) {
