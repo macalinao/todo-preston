@@ -29,6 +29,7 @@ require('./config/express')(app);
 // Restifier stuff
 app.use('/api', restifier());
 app.use('/api', restifier(Todo).middleware());
+app.use('/api', restifier.finish());
 
 // Start server
 server.listen(config.port, config.ip, function() {
