@@ -30,12 +30,20 @@ require('./config/express')(app);
 app.use('/api', restifier());
 app.use('/api', restifier(Todo).middleware());
 
-require('./routes')(app);
-
 // Start server
-server.listen(config.port, config.ip, function () {
+server.listen(config.port, config.ip, function() {
   console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
 });
+
+app.route('/:url(api|auth|components|app|bower_components|assets)/*')
+  .get(function(req, res) {
+    res.status(404).send('Not found');
+  });
+
+app.route('/*')
+  .get(function(req, res) {
+    res.sendfile(app.get('appPath') + '/index.html');
+  });
 
 // Expose app
 exports = module.exports = app;
